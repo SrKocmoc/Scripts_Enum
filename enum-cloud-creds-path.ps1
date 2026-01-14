@@ -5,11 +5,19 @@
 
 .EXAMPLE
   # Exibe valores completos (sem máscara), CSV
-  .\enum-cloud-creds-path.ps1 -Path "\\dcB\Temp\" -Recurse -ShowFull -Output ".\creds_full.csv" -Format csv -NoExtensionNames "credentials","config"
+  .\enum-cloud-creds-path.ps1 -Path "\\dcB\Temp\" -Recurse -ShowFull -Output ".\creds_full.csv" -Format csv -NoExtensionNames "credentials","config",".env"
 
 .EXAMPLE
   # Mantém máscara (ofusca)
   .\enum-cloud-creds-path.ps1 -Path "C:\Repos" -Recurse -Mask -Output ".\creds_masked.json" -Format json
+
+.EXAMPLE
+  # Enumera contendo qualquer arquivo sem extensão
+  .\enum-cloud-creds-path.ps1 -Path "\\dcAB\Temp\" -Recurse -ShowFull -Output ".\creds_full.csv" -Format csv `
+  -IncludeNoExtension
+
+.EXAMPLE
+  
 #>
 
 [CmdletBinding()]
@@ -284,3 +292,4 @@ if (-not $Output) {
     }
     Write-Host "[+] Resultados exportados para: $out" -ForegroundColor Green
 }
+
