@@ -16,8 +16,8 @@
   .\enum-cloud-creds-path.ps1 -Path "\\dcAB\Temp\" -Recurse -ShowFull -Output ".\creds_full.csv" -Format csv `
   -IncludeNoExtension
 
-.EXAMPLE
-  
+
+OBS: Ao utilizar o script algumas credenciais/keys não irão retornar o valor por inteiro sendo necessário você acessar o arquivo manualmente para obter a saída.
 #>
 
 [CmdletBinding()]
@@ -292,4 +292,5 @@ if (-not $Output) {
     }
     Write-Host "[+] Resultados exportados para: $out" -ForegroundColor Green
 }
+
 
