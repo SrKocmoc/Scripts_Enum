@@ -8,15 +8,15 @@
 
 .EXAMPLE
   # Exibe valores completos (sem máscara), CSV
-  .\enum-cloud-creds-path.ps1 -Path "\\dcB\Temp\" -Recurse -ShowFull -Output ".\creds_full.csv" -Format csv -NoExtensionNames "credentials","config",".env"
+  .\enum-cloud-creds-path.ps1 -Path "\\dcB\Temp\" -Output ".\creds_full.csv" -Format csv -NoExtensionNames "credentials","config",".env"
 
 .EXAMPLE
-  # Mantém máscara (ofusca)
-  .\enum-cloud-creds-path.ps1 -Path "C:\Repos" -Recurse -Mask -Output ".\creds_masked.json" -Format json
+  # Mantém máscara (ofusca credenciais encontradas. Ex: AIKA1232************)
+  .\enum-cloud-creds-path.ps1 -Path "C:\Repos" -Mask -Output ".\creds_masked.json" -Format json
 
 .EXAMPLE
   # Enumera contendo qualquer arquivo sem extensão
-  .\enum-cloud-creds-path.ps1 -Path "\\dcAB\Temp\" -Recurse -ShowFull -Output ".\creds_full.csv" -Format csv -IncludeNoExtension
+  .\enum-cloud-creds-path.ps1 -Path "\\dcAB\Temp\" -Output ".\creds_full.csv" -Format csv
 
 
 OBS: Ao utilizar o script algumas credenciais/keys não irão retornar o valor por inteiro sendo necessário você acessar o arquivo manualmente para obter a saída. .PARAMETERS (principais)
@@ -414,3 +414,4 @@ if ($totalMatches -eq 0) {
 }
 
 Write-Host "[+] Resultados exportados para: $Output" -ForegroundColor Green
+
